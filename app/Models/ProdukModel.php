@@ -10,6 +10,8 @@ class ProdukModel extends Model
     protected $primaryKey = 'id_produk';
 
     protected $useAutoIncrement = false;
+    // Dates
+    protected $useTimestamps = true;
 
     protected $allowedFields = [
         'id_produk',
@@ -23,8 +25,6 @@ class ProdukModel extends Model
     ];
 
     protected $validationRules = [
-        'id_produk'     =>'required|',
-        'id_kategori'     =>'required',
         'sku'     =>'required|alpha_numeric',
         'nama_produk'     =>'required|alpha|max_length[25]|is_unique[produk.nama_produk]',
         'deskripsi'     =>'required|alpha_numeric_punct|max_length[255]',
@@ -54,6 +54,6 @@ class ProdukModel extends Model
         'berat' => [
             'required' => 'Mohon mengisi kolom Berat Produk'
         ],
-    ]
+    ];
 
 }
