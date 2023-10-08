@@ -31,7 +31,7 @@ class AkunModel extends Model
         'password'     =>'required|alpha|max_length[32]|min_length[8]',
         'nama'     =>'required|alpha_space|max_length[64]',
         'telp'     =>'max_length[13]|numeric',
-    ]
+    ];
 
     protected $validationMessages = [
         'email' => [

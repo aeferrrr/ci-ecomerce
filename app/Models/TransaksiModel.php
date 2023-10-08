@@ -23,7 +23,7 @@ class TransaksiModel extends Model
 
     //validation
     protected $validationRules = [
-        'total_harga'        => 'required'
+        'total_harga'        => 'required',
         'resi'        => 'required|max_length[64]|alpha_numeric'
     ];
     protected $validationMessages = [

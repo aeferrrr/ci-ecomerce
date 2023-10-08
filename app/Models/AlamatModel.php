@@ -31,7 +31,7 @@ class AlamatModel extends Model
         'kelurahan'     =>'required|max_length[32]|alpha_numeric',
         'kode_pos'     =>'required|max_length[5]|numeric',
         
-    ]
+    ];
 
     protected $validationMessages = [
         'alamat' => [
