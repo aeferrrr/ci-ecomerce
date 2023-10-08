@@ -22,6 +22,8 @@ class ProdukModel extends Model
         'deskripsi',
         'stok',
         'berat',
+        'created_at',
+        'updated_at',
     ];
 
     protected $validationRules = [

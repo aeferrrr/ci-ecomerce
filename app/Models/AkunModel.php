@@ -22,6 +22,8 @@ class AkunModel extends Model
         'password',
         'nama',
         'telp',
+        'created_at',
+        'updated_at',
     ];
 
     protected $validationRules = [

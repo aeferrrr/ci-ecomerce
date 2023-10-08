@@ -9,6 +9,20 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
+use App\Models\AkunModel;
+use App\Models\AlamatModel;
+use App\Models\DetailTransaksiModel;
+use App\Models\EkspedisiModel;
+use App\Models\KategoriModel;
+use App\Models\KeranjangModel;
+use App\Models\ProdukModel;
+use App\Models\RoleModel;
+use App\Models\StatusModel;
+use App\Models\TransaksiModel;
+use Config\Services;
+
+
+
 /**
  * Class BaseController
  *
@@ -21,6 +35,18 @@ use Psr\Log\LoggerInterface;
  */
 abstract class BaseController extends Controller
 {
+
+    protected $akunModel = AkunModel::class;
+    protected $alamatModel = AlamatModel::class;
+    protected $detailtransaksiModel = DetailTransaksiModel::class;
+    protected $ekspedisiModel = EkspedisiModel::class;
+    protected $kategoriModel = KategoriModel::class;
+    protected $keranjangModel = KeranjangModel::class;
+    protected $produkModel = ProdukModel::class;
+    protected $roleModel = RoleModel::class;
+    protected $statusModel = StatusModel::class;
+    protected $transaksiModel = TransaksiModel::class;
+
     /**
      * Instance of the main Request object.
      *
@@ -54,5 +80,16 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $this->akunModel = new AkunModel();
+        $this->alamatModel = new AlamatModel();
+        $this->detailtransaksiModel = new DetailTransaksiModel();
+        $this->ekspedisiModel = new EkspedisiModel();
+        $this->kategoriModel = new KategoriModel();
+        $this->keranjangModel = new KeranjangModel();
+        $this->produkModel = new ProdukModel();
+        $this->roleModel = new RoleModel();
+        $this->statusModel = new StatusModel();
+        $this->transaksiModel = new TransaksiModel();
+  
     }
 }
