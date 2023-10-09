@@ -78,7 +78,6 @@ class Auth extends BaseController
 
         $datauser = [
             'nama' => $name,
-            'id_alamat' => 1,
             'password' => $hashedPassword,
             'email' => $email,
             'id_role' => 1,
