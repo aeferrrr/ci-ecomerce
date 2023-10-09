@@ -69,10 +69,6 @@
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
                         <label for="password">Password</label>
                         <div class="input-group">
                             <input type="password" class="form-control" id="password" name="password" required>
@@ -104,8 +100,8 @@
             <div class="modal-body">
                 <form action="<?= base_url('auth/login') ?>" method="post">
                     <div class="form-group">
-                        <label for="loginUsername">Username</label>
-                        <input type="text" class="form-control" id="loginUsername" name="username" required>
+                        <label for="loginEmail">Email</label>
+                        <input type="email" class="form-control" id="loginEmail" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="loginPassword">Password</label>
