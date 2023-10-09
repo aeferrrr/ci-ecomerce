@@ -10,14 +10,14 @@ class AkunModel extends Model
     protected $primaryKey = 'id_akun';
 
     protected $useAutoIncrement = true;
-    // Dates
+    
     protected $useTimestamps = true;
 
     protected $allowedFields = [
         'id_akun',
         'id_alamat',
         'id_role',
-        'id_status',    
+        'id_status',
         'email',
         'password',
         'nama',
@@ -26,4 +26,5 @@ class AkunModel extends Model
         'created_at',
         'updated_at',
     ];
+
 }

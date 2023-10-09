@@ -20,20 +20,4 @@ class TransaksiModel extends Model
 
     // Dates
     protected $useTimestamps = true;
-
-    //validation
-    protected $validationRules = [
-        'total_harga'        => 'required',
-        'resi'        => 'required|max_length[64]|alpha_numeric'
-    ];
-    protected $validationMessages = [
-        'total_harga' => [
-            'required' => 'Mohon mengisi kolom Total Harga',
-        ],
-        'resi' => [
-            'required' => 'Mohon mengisi kolom Resi',
-            'max_length' => 'Tidak Dapat melebihi 64 karakter',
-            'alpha_numeric' => 'Kolom harus berupa huruf dan angka',
-        ],
-    ];
 }
