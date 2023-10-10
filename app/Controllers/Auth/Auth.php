@@ -30,13 +30,14 @@ class Auth extends BaseController
                     'id_akun' => $user['id_akun'],
                 ];
                 $session->set($sessionData);
+
     
                 // Redirect berdasarkan peran pengguna (id_role)
                 switch ($user['id_role']) {
                     case 1:
                         return redirect()->to(base_url('admin/dashboard'));
                     case 2:
-                        return redirect()->to(base_url('uploader/dashboard'));
+                        return redirect()->to(base_url('/'));
                     default:
                         session()->setFlashdata('error', 'Username atau Password Salah');
                         return redirect()->to(base_url('/'));
@@ -51,7 +52,20 @@ class Auth extends BaseController
         }
     }
 
-
+    public function logout()
+    {
+        // Menghancurkan sesi
+        $session = session();
+        $session->destroy();
+        session_write_close();
+    
+        // Menyimpan pesan sukses dalam flash data
+        session()->setFlashdata('success', 'Berhasil Logout');
+    
+        // Mengalihkan pengguna ke halaman beranda (base url)
+        return redirect()->to(base_url('/'));
+    }
+    
     public function register()
     {
         $validationRules = [

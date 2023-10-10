@@ -38,9 +38,31 @@
                 </li>
         <li class="nav-item"><a class="nav-link" href="<?= base_url('publikasi') ?>">Publikasi</a></li>
     </ul>
-    
+<?php if (session()->has('id_akun')): ?>
+    <div class="position-relative">
+    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <?php if (!empty($profile['foto_profile'])) : ?>
+            <img src="<?= base_url('uploads/' . $profile['foto_profile']); ?>" alt="mdo" width="32" height="32" class="rounded-circle">
+        <?php else : ?>
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+        <?php endif; ?>
+    </a>
+   
+    <ul class="dropdown-menu dropdown-menu-end text-small shadow">
+        <li> <a class="dropdown-item"> <?= session()->get('nama'); ?></a></li>
+        <li><a class="dropdown-item" href="<?= base_url('uploader/profile/update/' . session()->get('id_akun')); ?>">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" id="logoutButton">Sign out</a></li>
+    </ul>
+</div>
+<?php else: ?>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Login</button>
     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</button>
+<?php endif; ?>
+
+
+
+
 
 </div>
 
@@ -121,7 +143,28 @@
     </div>
 </div>
 
-
+<script>
+    // Event listener untuk tombol logout
+    document.getElementById('logoutButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Mencegah aksi default link
+        
+        // Tampilkan SweetAlert konfirmasi
+        Swal.fire({
+            title: 'Logout',
+            text: 'Anda yakin ingin logout?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Logout',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "<?= base_url('auth/logout'); ?>";
+            }
+        });
+    });
+</script>
 <script>
     const togglePassword = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password');
