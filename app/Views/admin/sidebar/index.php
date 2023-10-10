@@ -36,44 +36,15 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen Produk :</h6>
                 <a class="collapse-item" href="<?= base_url('#') ?>">Produk List</a>
-                <a class="collapse-item" href="<?= base_url('produk/create') ?>">Tambah Produk</a>
-                <h6 class="collapse-header">Manajemen Brand :</h6>
-                <a class="collapse-item" href="<?= base_url('#') ?>">Brand List</a>
-                <a class="collapse-item" href="<?= base_url('#') ?>">Tambah Brand</a>
+                <a class="collapse-item" href="<?= base_url('admin/produk/create') ?>">Tambah Produk</a>
                 <h6 class="collapse-header">Manajemen Kategori :</h6>
-                <a class="collapse-item" href="<?= base_url('#') ?>">Kategori List</a>
-                <a class="collapse-item" href="<?= base_url('#') ?>">Tambah Kategori</a>
+                <a class="collapse-item" href="<?= base_url('admin/kategori/read') ?>">Kategori List</a>
+                <a class="collapse-item" href="<?= base_url('admin/kategori/create') ?>">Tambah Kategori</a>
             </div>
         </div>
     </li>
 
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-user-tie"></i>
-            <span>Pegawai</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Manajemen Pegawai:</h6>
-                <a class="collapse-item" href="<?= base_url('koperasi/pegawai/read') ?>">Pegawai Terdaftar</a>
-                <a class="collapse-item" href="<?= base_url('koperasi/pegawai/insert') ?>">Tambah Pegawai</a>
-            </div>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="far fa-id-card"></i>
-            <span>Member Customer</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Manajemen Member:</h6>
-                <a class="collapse-item" href="<?= base_url('koperasi/siswa/read') ?>">Member Terdaftar</a>
-                <a class="collapse-item" href="<?= base_url('koperasi/siswa/create') ?>">Tambah Member</a>
-            </div>
-        </div>
-    </li>
+
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -85,10 +56,11 @@
 
     <!-- Nav Item -  -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('koperasi/riwayat/read') ?>">
+            <a class="nav-link" href="<?= base_url('koperasi/riwayat/read') ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Riwayat Transaksi</span></a>
     </li>
+    
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
