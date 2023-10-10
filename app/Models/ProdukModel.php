@@ -9,7 +9,7 @@ class ProdukModel extends Model
     protected $table      = 'produk';
     protected $primaryKey = 'id_produk';
 
-    protected $useAutoIncrement = false;
+    protected $useAutoIncrement = true;
     // Dates
     protected $useTimestamps = true;
 
