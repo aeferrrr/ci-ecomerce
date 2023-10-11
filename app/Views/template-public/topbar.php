@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="/">
             <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
-            <img src="https://1.bp.blogspot.com/-Btegxn7O3hk/X5GWBUPfHQI/AAAAAAAAJ1U/x2Tdgy-iNqIYwsZNHnALJIPRMAwOZvrLACLcBGAsYHQ/s0/UBI.png" alt="Logo" width="50" height="50">
+            <img src="https://media.istockphoto.com/id/1261663067/id/vektor/templat-desain-logo-toko-online-desain-ilustrasi-ikon-vektor-logo-belanja-ikon-tas-belanja.jpg?s=612x612&w=0&k=20&c=FmajC7m61t113IumbBUo1tmy6MB9KBYxBRrNIO5gch8=" alt="Logo" width="50" height="50">
             </svg>
           
         </a>
@@ -22,7 +22,6 @@
 <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto">
         <li class="nav-item"><a class="nav-link" href="<?= base_url('/') ?>">Beranda</a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= base_url('search/Event') ?>">Event</a></li>
         <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="pengaturan" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Kategori
@@ -36,7 +35,6 @@
                         <a class="dropdown-item" href="<?php echo base_url('search/REKOGNISI'); ?>">Rekognisi</a>
                     </div>
                 </li>
-        <li class="nav-item"><a class="nav-link" href="<?= base_url('publikasi') ?>">Publikasi</a></li>
     </ul>
 <?php if (session()->has('id_akun')): ?>
     <div class="position-relative">
@@ -142,7 +140,13 @@
         </div>
     </div>
 </div>
-
+<div class="cart-container">
+  <a href="/cart">
+    <div class="cart-icon">
+      <i class="fa fa-shopping-cart"></i>
+      <span class="item-count">0</span>
+    </div>
+  </div>
 <script>
     // Event listener untuk tombol logout
     document.getElementById('logoutButton').addEventListener('click', function(event) {
@@ -182,3 +186,32 @@ toggleLoginPassword.addEventListener('click', function () {
     loginPasswordInput.setAttribute('type', type);
 });
 </script>
+<style>
+    .cart-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  .cart-icon {
+    cursor: pointer;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .fa-shopping-cart {
+    font-size: 24px;
+  }
+
+  .item-count {
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
