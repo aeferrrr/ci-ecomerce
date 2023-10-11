@@ -17,6 +17,9 @@ use CodeIgniter\Router\RouteCollection;
 //cart
 $routes->get('/cart', 'Public\Cart::index');
 
+//product
+$routes->get('/detail/(:any)', 'Public\Product::index/$1');
+
  //public
  $routes->get('/beranda', 'Public\Dashboard::index');
 $routes->get('/', 'Public\Dashboard::index');
