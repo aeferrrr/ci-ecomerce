@@ -140,13 +140,7 @@
         </div>
     </div>
 </div>
-<div class="cart-container">
-  <a href="/cart">
-    <div class="cart-icon">
-      <i class="fa fa-shopping-cart"></i>
-      <span class="item-count">0</span>
-    </div>
-  </div>
+
 <script>
     // Event listener untuk tombol logout
     document.getElementById('logoutButton').addEventListener('click', function(event) {
@@ -208,6 +202,7 @@ toggleLoginPassword.addEventListener('click', function () {
   }
 
   .item-count {
+    color: blue;
     font-size: 14px;
     position: absolute;
     top: 50%;
