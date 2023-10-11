@@ -26,10 +26,10 @@ $this->section('container'); ?>
                             <th><?= $i++; ?></th>
                             <td><?= $kt['nama_kategori']; ?></td>
                             <td>
-                                <a href="<?= base_url('koperasi/kategori/update/' . $kt['id_kategori']) ?>" class="btn btn-sm btn-warning btn-circle update">
+                                <a href="<?= base_url('admin/kategori/update/' . $kt['id_kategori']) ?>" class="btn btn-sm btn-warning btn-circle update">
                                     <i class="far fa-edit"></i>
                                 </a>
-                                <a href="<?= base_url('koperasi/kategori/delete/' . $kt['id_kategori']) ?>" class="btn btn-sm btn-danger btn-circle delete">
+                                <a href="<?= base_url('admin/kategori/delete/' . $kt['id_kategori']) ?>" class="btn btn-sm btn-danger btn-circle delete">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>
