@@ -2,6 +2,13 @@
 
 <?php $this->section('container'); ?>
 <!-- Konten Utama -->
+<div class="cart-container">
+  <a href="/cart">
+    <div class="cart-icon">
+      <i class="fa fa-shopping-cart"></i>
+      <span class="item-count"><?php echo $keranjang ?></span>
+    </div>
+  </div>
 <div class="container mt-5">
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -45,6 +52,7 @@
                 <?php endforeach;} ?>
             </div>
         </div>
+        
 
 <!-- JavaScript untuk menetapkan tinggi yang sama ke kolom-kolom dalam satu baris -->
 <style>

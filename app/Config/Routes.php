@@ -16,6 +16,8 @@ use CodeIgniter\Router\RouteCollection;
 
 //cart
 $routes->get('/cart', 'Public\Cart::index');
+$routes->post('/cart/add', 'Public\Cart::add');
+$routes->post('/cart/delete', 'Public\Cart::delete');
 
 //product
 $routes->get('/detail/(:any)', 'Public\Product::index/$1');

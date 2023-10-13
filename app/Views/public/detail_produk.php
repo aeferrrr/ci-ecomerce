@@ -6,6 +6,7 @@
 
 <?php foreach ($produk as $pk): ?>
     <?php $id_produk = base64_encode($pk['id_produk']); ?>
+    <form action="<?= base_url('/cart/add/') ?>" method="post">
     <section class="py-5">
         <div class="container">
             <div class="row gx-5">
@@ -15,8 +16,6 @@
                             <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="<?= base_url('uploads/' . $pk['gambar_produk']); ?>" />
                         </a>
                     </div>
-                    <!-- thumbs-wrap.// -->
-                    <!-- gallery-wrap .end// -->
                 </aside>
                 <main class="col-lg-6">
                     <div class="ps-lg-3">
@@ -66,7 +65,7 @@
                                     <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                         <i class="fas fa-minus"></i>
                                     </button>
-                                    <input type="number" class="form-control text-center border border-secondary" placeholder="1" aria-label="Example text with button addon" min="1" max="<?= $pk['stok'] ?>" aria-describedby="button-addon1" />
+                                    <input type="number" name="jumlah_produk" class="form-control text-center border border-secondary" value="1" min="1" max="<?= $pk['stok'] ?>"  />
                                     <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                         <i class="fas fa-plus"></i>
                                     </button>
@@ -74,7 +73,14 @@
                             </div>
                         </div>
                         <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
-                        <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+                    
+                        <input type="hidden" name="id_produk" value="<?= $id_produk ?>">
+                        <input type="hidden" name="id_akun" value="<?= session()->get('id_akun') ?>">
+                        <button type="submit" class="btn btn-primary shadow-0">
+                            <i class="me-1 fa fa-shopping-basket"></i> Add to cart
+                        </button>
+                    </form>
+
                     </div>
                 </main>
             </div>
@@ -82,5 +88,12 @@
                             
     </section>
 <?php endforeach; ?>
+<div class="cart-container">
+  <a href="<?= base_url('/cart') ?>">
+    <div class="cart-icon">
+      <i class="fa fa-shopping-cart"></i>
+      <span class="item-count"><?php echo $keranjang?></span>
+    </div>
+  </div>
 
 <?php $this->endSection(); ?>

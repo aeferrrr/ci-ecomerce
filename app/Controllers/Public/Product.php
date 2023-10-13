@@ -20,6 +20,10 @@ class Product extends BaseController
         ->join('produk', 'detail_transaksi.id_produk = produk.id_produk')
         ->where('produk.id_produk', $produk)
         ->countAllResults(),
+        'keranjang' => $this->keranjangModel
+        ->join('akun', 'keranjang.id_akun = akun.id_akun')
+        ->where('keranjang.id_akun', session('id_akun'))
+        ->countAllResults(),
     ];
 
     return view('public/detail_produk', $data);
