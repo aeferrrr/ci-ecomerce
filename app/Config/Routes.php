@@ -29,8 +29,10 @@ $routes->get('/', 'Public\Dashboard::index');
 $routes->group('admin', ['filter' => 'roleFilter'], function ($routes) {
 //dashboard
 $routes->get('dashboard', 'Admin\Dashboard::index');
+
 // produk
-$routes->get('produk/create', 'Admin\Produk\Create::index');
+$routes->match(['get', 'post'], 'produk/create',    'Admin\Produk\Create::index');
+
 //kategori
 $routes->match(['get', 'post'], 'kategori/create',    'Admin\Kategori\Create::index');
 $routes->match(['get', 'post'], 'kategori/update/(:num)',    'Admin\Kategori\Update::index/$1');
