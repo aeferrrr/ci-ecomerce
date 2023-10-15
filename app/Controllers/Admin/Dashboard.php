@@ -8,6 +8,10 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        return view('admin/dashboard');
+        $data = [
+            'title' => 'Koperasi - Dashboard',
+            
+        ];
+        return view('admin/dashboard', $data);
     }
 }

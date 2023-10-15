@@ -19,6 +19,7 @@ class ProdukModel extends Model
         'sku',
         'nama_produk',
         'gambar_produk',
+        'harga',
         'deskripsi',
         'stok',
         'berat',

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Team">
 
-    <title>?</title>
+    <title><?= $title; ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url() ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -89,7 +89,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/logout">Logout</a>
+                    <a class="btn btn-primary" href="<?= base_url() ?>/auth/logout">Logout</a>
                 </div>
             </div>
         </div>

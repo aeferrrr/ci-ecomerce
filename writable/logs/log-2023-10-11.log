@@ -86,6 +86,7 @@ INFO - 2023-10-11 09:51:57 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-10-11 09:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-10-11 09:52:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-10-11 09:52:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+<<<<<<< HEAD
 =======
 INFO - 2023-10-11 03:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-10-11 03:50:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
@@ -991,3 +992,10 @@ INFO - 2023-10-11 15:25:48 --> Session: Class initialized using 'CodeIgniter\Ses
 CRITICAL - 2023-10-11 15:30:48 --> Maximum execution time of 60 seconds exceeded
 in APPPATH\Views\public\cart.php on line 91.
  1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+=======
+INFO - 2023-10-11 09:54:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-11 09:54:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-11 09:54:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-11 09:54:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-11 09:54:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+>>>>>>> ff5f06f57bd3ec996546bb23304831258c1200c4

@@ -35,7 +35,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen Produk :</h6>
-                <a class="collapse-item" href="<?= base_url('#') ?>">Produk List</a>
+                <a class="collapse-item" href="<?= base_url('admin/produk/read') ?>">Produk List</a>
                 <a class="collapse-item" href="<?= base_url('admin/produk/create') ?>">Tambah Produk</a>
                 <h6 class="collapse-header">Manajemen Kategori :</h6>
                 <a class="collapse-item" href="<?= base_url('admin/kategori/read') ?>">Kategori List</a>
