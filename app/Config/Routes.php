@@ -25,6 +25,7 @@ $routes->post('/cart/ongkir', 'Public\Cart::hitungOngkosKirim');
 $routes->post('/transaction/add', 'Public\Transaction::add');
 $routes->post('/transaction/checkout', 'Public\Transaction::checkout');
 $routes->get('/transaction/payment/(:any)', 'Public\Transaction::payment/$1');
+$routes->post('/transaction/history', 'Public\Transaction::history');
 $routes->get('public/transaction/getCityData/(:any)', 'Public\Transaction::getCityData/$1');
 $routes->post('rajaongkir/shipping-cost', 'RajaOngkirController::getShippingCost');
 

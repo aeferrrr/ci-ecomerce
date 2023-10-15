@@ -49,7 +49,13 @@
     <ul class="dropdown-menu dropdown-menu-end text-small shadow">
         <li> <a class="dropdown-item"> <?= session()->get('nama'); ?></a></li>
         <li><a class="dropdown-item" href="<?= base_url('uploader/profile/update/' . session()->get('id_akun')); ?>">Profile</a></li>
+        <li><a class="dropdown-item" id="history">Riwayat Transaksi</a></li>
+        <form id="postForm" action="<?= base_url('transaction/history'); ?>" method="post">
+        <input type="hidden" name="id_akun" value="<?= base64_encode(session()->get('id_akun')); ?>">
+        </form>
+
         <li><hr class="dropdown-divider"></li>
+
         <li><a class="dropdown-item" id="logoutButton">Sign out</a></li>
     </ul>
 </div>
@@ -163,6 +169,16 @@
         });
     });
 </script>
+
+<script>
+    document.getElementById('history').addEventListener('click', function(event) {
+        event.preventDefault();
+        const postForm = document.getElementById('postForm');
+        postForm.submit();
+    });
+</script>
+
+
 <script>
     const togglePassword = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password');

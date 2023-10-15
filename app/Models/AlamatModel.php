@@ -9,7 +9,7 @@ class AlamatModel extends Model
     protected $table      = 'alamat';
     protected $primaryKey = 'id_alamat';
 
-    protected $useAutoIncrement = false;
+    protected $useAutoIncrement = true;
     // Dates
     protected $useTimestamps = true;
 
@@ -21,5 +21,7 @@ class AlamatModel extends Model
         'kecamatan',
         'kelurahan',
         'kode_pos',
+        'created_at',
+        'updated_at',
     ];
 }

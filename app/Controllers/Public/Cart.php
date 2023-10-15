@@ -10,41 +10,25 @@ class Cart extends BaseController
 {
     protected $ProdukModel;
     protected $keranjangModel;
+
     public function index()
 {
-    $apiKey = '2d0c536fb8b9498938cb3479dbfb435c'; // Gantilah dengan API Key Anda
-    $provinceId = 6.5; // Gantilah dengan ID provinsi yang sesuai
+    $keranjangData = $this->keranjangModel
+        ->join('produk', 'keranjang.id_produk = produk.id_produk')
+        ->where('id_akun', session('id_akun'))
+        ->findAll();
 
-    $url = "https://api.rajaongkir.com/starter/city?province=$provinceId";
-
-    $headers = [
-        'key: ' . $apiKey,
-    ];
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    $cities = [];
-    if ($response) {
-        $cities = json_decode($response, true);
-        // Proses data kota dan tampilkan di halaman web
+    if (empty($keranjangData)) {
+        return redirect()->to(base_url('/'));
     }
 
     $data = [
-        'keranjang' => $this->keranjangModel
-            ->join('produk', 'keranjang.id_produk = produk.id_produk')
-            ->where('id_akun', session('id_akun'))
-            ->findAll(),
-        'cities' => $cities, // Menambahkan data kota ke variabel $data
+        'keranjang' => $keranjangData,
     ];
 
     return view('public/cart', $data);
 }
+
 
     public function delete()
     {

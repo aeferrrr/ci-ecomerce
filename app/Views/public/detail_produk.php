@@ -72,13 +72,18 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
                     
                         <input type="hidden" name="id_produk" value="<?= $id_produk ?>">
                         <input type="hidden" name="id_akun" value="<?= session()->get('id_akun') ?>">
+                        <?php if ($pk['stok'] <= 0): ?>
+                            <a class="btn btn-danger shadow-0">
+                            </i> STOK HABIS
+                        </a>
+                        <?php else: ?>
                         <button type="submit" class="btn btn-primary shadow-0">
-                            <i class="me-1 fa fa-shopping-basket"></i> Add to cart
+                            <i class="me-1 fa fa-shopping-basket"></i> Masukan Keranjang
                         </button>
+                        <?php endif; ?>
                     </form>
 
                     </div>

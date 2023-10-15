@@ -17,6 +17,5 @@ class KeranjangModel extends Model
         'id_produk',
         'qty',
         'catatan',
-
     ];
 }

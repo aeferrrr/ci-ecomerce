@@ -15,7 +15,6 @@ class AkunModel extends Model
 
     protected $allowedFields = [
         'id_akun',
-        'id_alamat',
         'id_role',
         'id_status',
         'email',

@@ -84,7 +84,7 @@
               <div class="col-sm-8 mb-3">
                 <p class="mb-0">Alamat</p>
                 <div class="form-outline">
-                  <input type="text" id="alamat" name="alamat" placeholder="Type here" class="form-control" required value="<?= $alamat['alamat']; ?>" />
+                  <input type="text" id="alamat" name="alamat" placeholder="Type here" class="form-control" required value="" />
                 </div>
               </div>
 
@@ -112,14 +112,21 @@
               <div class="col-sm-4 mb-3">
                 <p class="mb-0">Kecamatan</p>
                 <div class="form-outline">
-                  <input type="text" id="kecamatan" name="kecamatan" placeholder="Type here" class="form-control" required value="<?= $alamat['kecamatan']; ?>" />
+                  <input type="text" id="kecamatan" name="kecamatan" placeholder="Type here" class="form-control" required value="" />
+                </div>
+              </div>
+
+              <div class="col-sm-4 mb-3">
+                <p class="mb-0">Kelurahan</p>
+                <div class="form-outline">
+                  <input type="text" id="kelurahan" name="kelurahan" placeholder="Type here" class="form-control" required value="" />
                 </div>
               </div>
 
               <div class="col-sm-4 col-6 mb-3">
                 <p class="mb-0">Kode Pos</p>
                 <div class="form-outline">
-                  <input type="text" id="kodepos" name="kodepos" class="form-control" required value="<?= $alamat['kode_pos']; ?>" />
+                  <input type="text" id="kodepos" name="kodepos" class="form-control" required value="" />
                 </div>
               </div>
             </div>  
@@ -139,6 +146,8 @@
                     <?php endforeach; ?>
 
             <div class="float-end">
+              <input type="hidden" id="selectedProvince" name="selectedProvince" value="">
+              <input type="hidden" id="city_name" name="city_name" value="">
               <input type="hidden" name="id_akun" id="id_akun" value="<?= base64_encode(session()->get('id_akun')) ?>">
               <input type="hidden" name="total-pembayaran1" id="total-pembayaran1" value="">
               <a href="<?= base_url('/cart') ?>" class="btn btn-light border">Kembali</a>
@@ -225,43 +234,61 @@
 </section>
 
 <script>
-        const provinceSelect = document.getElementById('province');
-        const citySelect = document.getElementById('city_id');
+    const provinceSelect = document.getElementById('province');
+    const citySelect = document.getElementById('city_id');
+    const cityNameInput = document.getElementById('city_name'); // Ganti 'city_name' dengan ID elemen input yang sesuai
 
-        provinceSelect.addEventListener('change', () => {
-            const selectedProvinceId = provinceSelect.value;
-            if (selectedProvinceId) {
+    provinceSelect.addEventListener('change', () => {
+        const selectedProvinceId = provinceSelect.value;
+        if (selectedProvinceId) {
+            fetch(`<?= base_url('public/transaction/getCityData/') ?>${selectedProvinceId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    citySelect.innerHTML = '<option value="">Pilih Kota</option>';
 
-fetch(`<?= base_url('public/transaction/getCityData/') ?>${selectedProvinceId}`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        citySelect.innerHTML = '<option value="">Pilih Kota</option>';
-
-        if (data.rajaongkir && data.rajaongkir.results) {
-            data.rajaongkir.results.forEach(city => {
-                const option = document.createElement('option');
-                option.value = city.city_id;
-                option.textContent = city.city_name;
-                citySelect.appendChild(option);
-            });
+                    if (data.rajaongkir && data.rajaongkir.results) {
+                        data.rajaongkir.results.forEach(city => {
+                            const option = document.createElement('option');
+                            option.value = city.city_id;
+                            option.textContent = city.city_name;
+                            citySelect.appendChild(option);
+                        });
+                    } else {
+                        console.error('Data kota tidak ditemukan dalam respons JSON.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         } else {
-            console.error('Data kota tidak ditemukan dalam respons JSON.');
+            citySelect.innerHTML = '<option value="">Pilih Kota</option>';
+            cityNameInput.value = ''; // Clear the city name input if no province is selected
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
     });
 
-            } else {
-                citySelect.innerHTML = '<option value="">Pilih Kota</option>';
-            }
-        });
-    </script>
+    // Event listener untuk dropdown kota
+    citySelect.addEventListener('change', () => {
+        cityNameInput.value = citySelect.options[citySelect.selectedIndex].text;
+    });
+</script>
+
+
+
+<script>
+    // Bagian JavaScript
+    const selectProvince = document.getElementById('province');
+    const hiddenInput = document.getElementById('selectedProvince');
+
+    selectProvince.addEventListener('change', function() {
+        hiddenInput.value = selectProvince.options[selectProvince.selectedIndex].text;
+    });
+</script>
+
 
 
 

@@ -9,6 +9,9 @@ class Transaction extends BaseController
 {
     protected $transaksiModel;
     protected $detailtransaksiModel;
+    protected $alamatModel;
+    protected $produkModel;
+    protected $keranjangModel;
 
     public function add()
     {
@@ -36,10 +39,6 @@ class Transaction extends BaseController
                     ->join('produk', 'keranjang.id_produk = produk.id_produk')
                     ->where('id_akun', $decodeidakun)
                     ->findAll(),
-                'alamat' => $this->alamatModel
-                    ->join('akun', 'alamat.id_alamat = akun.id_alamat')
-                    ->where('akun.id_akun', $decodeidakun)
-                    ->first(),
                 'provinsi' => $provinces,
             ];
 
@@ -81,6 +80,13 @@ class Transaction extends BaseController
     public function checkout()
     {
         $idAkun = $this->request->getPost('id_akun');
+        $alamat = $this->request->getPost('alamat');
+        $kecamatan = $this->request->getPost('kecamatan');
+        $kodepos = $this->request->getPost('kodepos');
+        $kelurahan = $this->request->getPost('kelurahan');
+        $provinsi = $this->request->getPost('selectedProvince');
+        $kota = $this->request->getPost('city_name');
+        
         $idAkunDecoded = base64_decode($idAkun);
         $total_pembayaran = $this->request->getPost('total-pembayaran1');
         $kurir = $this->request->getPost('courier');
@@ -95,10 +101,34 @@ class Transaction extends BaseController
         }
         $products = $this->request->getPost('products');
 
+    
+        $keranjang = $this->keranjangModel->where('id_akun', $idAkunDecoded)->findAll();
+        $idsToDelete = [];
+        foreach ($keranjang as $item) {
+            $idsToDelete[] = $item['id_keranjang'];
+        }
+        if (!empty($idsToDelete)) {
+            $this->keranjangModel->delete($idsToDelete);
+        }
+
+
+        
+        $alamat = [
+            'alamat' => $alamat,
+            'provinsi' => $provinsi,
+            'kota' => $kota,
+            'kecamatan' => $kecamatan,
+            'kelurahan' => $kelurahan,
+            'kode_pos' => $kodepos,
+
+        ];
+        $this->alamatModel->insert($alamat);
+        $alamatId = $this->alamatModel->getInsertID();
 
         $transaksi = [
                 'id_akun' => $idAkunDecoded,
                 'id_ekspedisi' => $nilaiKurir,
+                'id_alamat' => $alamatId,
                 'total_harga' => $total_pembayaran,
         ];
         $this->transaksiModel->insert($transaksi);
@@ -110,16 +140,27 @@ class Transaction extends BaseController
             $qty = $product['qty'];
             $catatan = $product['catatan'];
             $hasilPerkalian = $product['total'];
-        $detailtransaksi =[
-            'id_transaksi' => $transaksiId,
-            'id_produk' => $idProduk,
-            'qty' => $qty,
-            'catatan' => $catatan,
-            'total' => $hasilPerkalian,
-        ];
-        $this->detailtransaksiModel->insert($detailtransaksi);
+        
+            // Simpan detail transaksi
+            $detailtransaksi = [
+                'id_transaksi' => $transaksiId,
+                'id_produk' => $idProduk,
+                'qty' => $qty,
+                'catatan' => $catatan,
+                'total' => $hasilPerkalian,
+            ];
+            $this->detailtransaksiModel->insert($detailtransaksi);
+        
+            // Kurangi stok produk
+            $produk = $this->produkModel->where('id_produk', $idProduk)->first();
+            if ($produk) {
+                $newQty = $produk['stok'] - $qty;
+                $this->produkModel->where('id_produk', $produk['id_produk'])
+                    ->set('stok', $newQty)
+                    ->update();
+            }
         }
-
+        
         $idtransaksiencode = base64_encode($transaksiId);
         return redirect()->to(base_url('/transaction/payment/' . $idtransaksiencode));
     }
@@ -137,6 +178,49 @@ class Transaction extends BaseController
         ];
     
         return view('public/payment', $data);
+    }
+    
+    public function history()
+    {
+        $idAkun = $this->request->getPost('id_akun');
+        $idAkunDecoded = base64_decode($idAkun);
+    
+        // Mengambil data transaksi berdasarkan ID akun
+        $transaksi = $this->transaksiModel
+            ->join('detail_transaksi', 'transaksi.id_transaksi = detail_transaksi.id_transaksi')
+            ->join('alamat', 'transaksi.id_alamat = alamat.id_alamat')
+            ->join('akun', 'transaksi.id_akun = akun.id_akun')
+            ->join('produk', 'detail_transaksi.id_produk = produk.id_produk')
+            ->where('transaksi.id_akun', $idAkunDecoded)
+            ->findAll();
+    
+        // Mengatur ulang data transaksi dan mengelompokkan item per transaksi
+        $data =
+         [];
+        foreach ($transaksi as $tr) {
+            $transaksiId = $tr['id_transaksi'];
+    
+            // Jika transaksiId belum ada dalam $data, tambahkan sebagai indeks baru
+            if (!array_key_exists($transaksiId, $data)) {
+                $data[$transaksiId] = [
+                    'id_transaksi' => $tr['id_transaksi'],
+                    'tanggal_pengiriman' => $tr['updated_at'],
+                    'items' => [],
+                ];
+            }
+    
+            // Tambahkan item ke dalam transaksi
+            $data[$transaksiId]['items'][] = [
+                'gambar_produk' => $tr['gambar_produk'],
+                'nama_produk' => $tr['nama_produk'],
+                'catatan' => $tr['catatan'],
+                'total' => $tr['total'],
+                'total_harga' => $tr['total_harga'],
+                'resi' => $tr['resi'],
+            ];
+        }
+    
+        return view('public/history', ['transaksi' => $data,]);
     }
     
 
