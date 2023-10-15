@@ -12,50 +12,109 @@ class Create extends BaseController
     public function index()
     {
         if (!$this->request->is('post')) {
-            $data =
-                [
-                    'title'     => 'Koperasi - Tambah Produk',
-                    'kategori'  => $this->kategoriModel->findAll(),
-                ];
+            $data = [
+                'title' => 'Admin - Tambah Produk',
+                'kategori' => $this->kategoriModel->findAll(),
+            ];
             return view('admin/produk/create', $data);
         }
-
-
-       // Validasi form
-    $validation = \Config\Services::validation();
-    $rules = [
-        // 'nama_produk' => 'required',
-        // 'harga' => 'required',
-        // tambahkan validasi lainnya sesuai kebutuhan
-    ];
-
-    if (!$this->validate($rules)) {
-        $data['validation'] = $validation;
-        return view('admin/produk/create', $data);
-    } else {
-        // Proses input data
-
-        // Proses unggahan gambar
-        $gambarProduk = $this->request->getFile('gambar_produk');
-        if ($gambarProduk->isValid() && !$gambarProduk->hasMoved()) {
-            $newName = $gambarProduk->getRandomName();
-            $gambarProduk->move('path_to_your_image_directory', $newName);
-
-            // Simpan nama gambar ke database (jika perlu)
-            $gambarProdukName = $newName;
-        }
-
-        // Simpan data ke database (contoh)
-        $produkData = [
-            'nama_produk' => $this->request->getVar('nama_produk'),
-            'harga' => $this->request->getVar('harga'),
-            // tambahkan data lainnya
-            'gambar_produk' => $gambarProdukName, // Simpan nama gambar ke database
+        $newFileName = ''; // Inisialisasi dengan nilai default kosong
+        $validation = \Config\Services::validation();
+        // Manual validation
+        $validationRules = [
+            'id_kategori' => 'required',
+            'sku' => 'required|numeric|max_length[11]',
+            'nama_produk' => 'required|alpha_numeric_punct|max_length[25]|is_unique[produk.nama_produk]',
+            'harga' => 'required|numeric',
+            'stok' => 'required|numeric',
+            'berat' => 'required|numeric',
+            'deskripsi' => 'required',
         ];
 
-        // Lakukan penyimpanan data ke database
+        $validationMessages = [
+            'id_kategori' => [
+                'required' => 'Kolom Harus Terisi',
+                // Add more custom error messages as needed
+            ],
+            'sku' => [
+                'required' => 'Kolom Harus Terisi',
+                'numeric' => 'Kolom Harus Berupa Angka',
+                'max_length' => 'Kolom SKU Tidak Lebih Dari 11 Angka',
+                // Add more custom error messages as needed
+            ],
+            'nama_produk' => [
+                'required' => 'Kolom Harus Terisi',
+                'max_length' => 'Kolom tidak boleh lebih dari 25 huruf',
+                'is_unique' => 'Maaf, produk sudah terdaftar',
+                // Add more custom error messages as needed
+            ],
+            'harga' => [
+                'required' => 'Kolom Harus Terisi',
+                'numeric' => 'Kolom Harus Berupa Angka',
+                // Add more custom error messages as needed
+            ],
+            'stok' => [
+                'required' => 'Kolom Harus Terisi',
+                'numeric' => 'Kolom Harus Berupa Angka',
+                // Add more custom error messages as needed
+            ],
+            'berat' => [
+                'required' => 'Kolom Harus Terisi',
+                'numeric' => 'Kolom Harus Berupa Angka',
+                // Add more custom error messages as needed
+            ],
 
-        return redirect()->to('admin/produk')->with('success', 'Produk berhasil disimpan');
-    }
+        ];
+
+        if (!$this->validate($validationRules, $validationMessages)) {
+            return redirect()->to('admin/produk/create')->withInput()->with('validation', $this->validator);
+        }
+
+        // ...
+
+        $gambarProduk = $this->request->getFile('gambar_produk');
+
+        // Validasi apakah file gambar diunggah
+        if (!$gambarProduk->isValid()) {
+            return redirect()->to('admin/produk/create')->with('error', 'Anda harus mengunggah gambar produk.');
+        }
+        
+        // Validasi tipe berkas
+        if (!in_array($gambarProduk->getClientExtension(), ['jpg', 'jpeg', 'png', 'JPG', 'PNG', 'JPEG'])) {
+            return redirect()->to('admin/produk/create')->with('error', 'File harus berupa JPG, JPEG, atau PNG.');
+        }
+        
+        // Validasi ukuran maksimum (2 MB)
+        if ($gambarProduk->getSize() > 2 * 1024 * 1024) { // 2 MB in bytes
+            return redirect()->to('admin/produk/create')->with('error', 'Ukuran file harus kurang dari 2 MB.');
+        }
+        
+        // Unsur kode lainnya
+        $newFileName = $gambarProduk->getRandomName();
+        $gambarProduk->move(ROOTPATH . 'public/uploads', $newFileName);
+        
+        // ...
+        
+        
+        // ...
+        
+
+// ...
+
+
+        $produkData = [
+            'id_kategori' => $this->request->getPost('id_kategori'),
+            'sku' => $this->request->getPost('sku'),
+            'nama_produk' => $this->request->getPost('nama_produk'),
+            'harga' => $this->request->getPost('harga'),
+            'stok' => $this->request->getPost('stok'),
+            'berat' => $this->request->getPost('berat'),
+            'gambar_produk' => $newFileName,
+            'deskripsi' => $this->request->getPost('deskripsi'),
+        ];
+
+        $this->produkModel->insert($produkData);
+
+        return redirect()->to('admin/produk/create')->with('success', 'Produk berhasil disimpan');
     }
 }
