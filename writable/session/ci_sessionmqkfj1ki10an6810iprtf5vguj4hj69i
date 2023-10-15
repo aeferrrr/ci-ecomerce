@@ -1,0 +1,9 @@
+__ci_last_regenerate|i:1696859181;_ci_previous_url|s:32:"http://localhost:8080/index.php/";field_errors|s:241:"<!-- DEBUG-VIEW START 1 SYSTEMPATH\Validation\Views\list.php -->
+	<div class="errors" role="alert">
+		<ul>
+					<li>The nama field is required.</li>
+				</ul>
+	</div>
+
+<!-- DEBUG-VIEW ENDED 1 SYSTEMPATH\Validation\Views\list.php -->
+";__ci_vars|a:6:{s:12:"field_errors";s:3:"old";s:17:"field_error.email";s:3:"old";s:20:"field_error.password";s:3:"old";s:16:"field_error.nama";s:3:"old";s:13:"_ci_old_input";s:3:"old";s:21:"_ci_validation_errors";s:3:"old";}field_error.email|s:0:"";field_error.password|s:0:"";field_error.nama|s:27:"The nama field is required.";_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:4:{s:4:"name";s:20:"Marcellino S Putro M";s:5:"email";s:24:"marcsatrioff11@gmail.com";s:8:"password";s:8:"UcokBaba";s:8:"honeypot";s:0:"";}}_ci_validation_errors|a:1:{s:4:"nama";s:27:"The nama field is required.";}

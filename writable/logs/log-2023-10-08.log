@@ -1,0 +1,247 @@
+CRITICAL - 2023-10-08 16:49:11 --> syntax error, unexpected token "protected", expecting "," or ";"
+in APPPATH\Models\AkunModel.php on line 36.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\app\\Models\\AkunModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\AkunModel')
+ 3 APPPATH\Controllers\BaseController.php(83): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\AkunModel')
+ 4 SYSTEMPATH\CodeIgniter.php(892): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 5 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+CRITICAL - 2023-10-08 16:50:35 --> syntax error, unexpected token "protected", expecting "," or ";"
+in APPPATH\Models\AkunModel.php on line 36.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\app\\Models\\AkunModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\AkunModel')
+ 3 APPPATH\Controllers\BaseController.php(83): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\AkunModel')
+ 4 SYSTEMPATH\CodeIgniter.php(892): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 5 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+CRITICAL - 2023-10-08 16:51:51 --> syntax error, unexpected token "protected", expecting "," or ";"
+in APPPATH\Models\AlamatModel.php on line 36.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\app\\Models\\AlamatModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\AlamatModel')
+ 3 APPPATH\Controllers\BaseController.php(84): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\AlamatModel')
+ 4 SYSTEMPATH\CodeIgniter.php(892): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 5 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+CRITICAL - 2023-10-08 16:52:35 --> syntax error, unexpected token "protected", expecting "," or ";"
+in APPPATH\Models\ProdukModel.php on line 37.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\app\\Models\\ProdukModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\ProdukModel')
+ 3 APPPATH\Controllers\BaseController.php(89): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\ProdukModel')
+ 4 SYSTEMPATH\CodeIgniter.php(892): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 5 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+CRITICAL - 2023-10-08 16:53:15 --> syntax error, unexpected single-quoted string "alpha", expecting "]"
+in APPPATH\Models\ProdukModel.php on line 44.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\app\\Models\\ProdukModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\ProdukModel')
+ 3 APPPATH\Controllers\BaseController.php(89): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\ProdukModel')
+ 4 SYSTEMPATH\CodeIgniter.php(892): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 5 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+CRITICAL - 2023-10-08 16:56:02 --> syntax error, unexpected single-quoted string "resi", expecting "]"
+in APPPATH\Models\TransaksiModel.php on line 27.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\app\\Models\\TransaksiModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\TransaksiModel')
+ 3 APPPATH\Controllers\BaseController.php(92): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\TransaksiModel')
+ 4 SYSTEMPATH\CodeIgniter.php(892): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 5 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+CRITICAL - 2023-10-08 16:56:04 --> syntax error, unexpected single-quoted string "resi", expecting "]"
+in APPPATH\Models\TransaksiModel.php on line 27.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\app\\Models\\TransaksiModel.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\TransaksiModel')
+ 3 APPPATH\Controllers\BaseController.php(92): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\TransaksiModel')
+ 4 SYSTEMPATH\CodeIgniter.php(892): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 5 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+INFO - 2023-10-08 16:56:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-08 17:03:14 --> "/admin/*" filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 576.
+ 1 SYSTEMPATH\Filters\Filters.php(576): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('/admin/*')
+ 2 SYSTEMPATH\Filters\Filters.php(259): CodeIgniter\Filters\Filters->processAliasesToClass('before')
+ 3 SYSTEMPATH\Filters\Filters.php(170): CodeIgniter\Filters\Filters->initialize('')
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\Filters\Filters->run('', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+CRITICAL - 2023-10-08 17:03:23 --> "/admin/*" filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 576.
+ 1 SYSTEMPATH\Filters\Filters.php(576): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('/admin/*')
+ 2 SYSTEMPATH\Filters\Filters.php(259): CodeIgniter\Filters\Filters->processAliasesToClass('before')
+ 3 SYSTEMPATH\Filters\Filters.php(170): CodeIgniter\Filters\Filters->initialize('')
+ 4 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\Filters\Filters->run('', 'before')
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+INFO - 2023-10-08 17:03:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:03:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:24:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:24:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:31:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-10-08 17:31:38 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', '', '', '', 3306, '', 0)
+#1 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\app\Controllers\Auth\Auth.php(21): CodeIgniter\BaseModel->first()
+#7 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(919): App\Controllers\Auth\Auth->login()
+#8 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Auth))
+#9 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\app\Controllers\Auth\Auth.php(21): CodeIgniter\BaseModel->first()
+#6 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(919): App\Controllers\Auth\Auth->login()
+#7 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Auth))
+#8 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\...')
+#11 {main}
+CRITICAL - 2023-10-08 17:31:38 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `akun`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Auth\Auth.php(21): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Auth\Auth->login()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+ERROR - 2023-10-08 17:31:52 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', '', '', '', 3306, '', 0)
+#1 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\app\Controllers\Auth\Auth.php(21): CodeIgniter\BaseModel->first()
+#7 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(919): App\Controllers\Auth\Auth->login()
+#8 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Auth))
+#9 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' (using password: NO) in C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\app\Controllers\Auth\Auth.php(21): CodeIgniter\BaseModel->first()
+#6 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(919): App\Controllers\Auth\Auth->login()
+#7 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Auth))
+#8 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\...')
+#11 {main}
+CRITICAL - 2023-10-08 17:31:52 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `akun`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Auth\Auth.php(21): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Auth\Auth->login()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+ERROR - 2023-10-08 17:32:22 --> mysqli_sql_exception: No database selected in C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\app\Controllers\Auth\Auth.php(21): CodeIgniter\BaseModel->first()
+#7 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(919): App\Controllers\Auth\Auth->login()
+#8 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Auth))
+#9 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\marcs\OneDrive\Documents\GitHub\ci-ecomerce\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\...')
+#12 {main}
+CRITICAL - 2023-10-08 17:32:22 --> No database selected
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `akun`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\Auth\Auth.php(21): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Auth\Auth->login()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+INFO - 2023-10-08 17:32:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:32:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:35:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:35:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:35:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:35:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-10-08 17:36:24 --> Invalid file: "template/activated.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('template/activated.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('template/activated', [], true)
+ 3 APPPATH\Controllers\Auth\Auth.php(170): view('template/activated')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Auth\Auth->activated()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Auth))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+CRITICAL - 2023-10-08 17:38:06 --> Invalid file: "template/index.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('template/index.php')
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template/index', [], true)
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('template-public/activated', [], true)
+ 4 APPPATH\Controllers\Auth\Auth.php(170): view('template-public/activated')
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Auth\Auth->activated()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marcs\\OneDrive\\Documents\\GitHub\\ci-ecomerce\\public\\index.php')
+INFO - 2023-10-08 17:38:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:41:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-08 17:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

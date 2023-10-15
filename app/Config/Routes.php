@@ -17,7 +17,18 @@ use CodeIgniter\Router\RouteCollection;
 //cart
 $routes->get('/cart', 'Public\Cart::index');
 $routes->post('/cart/add', 'Public\Cart::add');
+$routes->post('/cart/update', 'Public\Cart::update');
 $routes->post('/cart/delete', 'Public\Cart::delete');
+$routes->post('/cart/ongkir', 'Public\Cart::hitungOngkosKirim');
+
+//transaction
+$routes->post('/transaction/add', 'Public\Transaction::add');
+$routes->post('/transaction/checkout', 'Public\Transaction::checkout');
+$routes->get('/transaction/payment/(:any)', 'Public\Transaction::payment/$1');
+$routes->get('public/transaction/getCityData/(:any)', 'Public\Transaction::getCityData/$1');
+$routes->post('rajaongkir/shipping-cost', 'RajaOngkirController::getShippingCost');
+
+
 
 //product
 $routes->get('/detail/(:any)', 'Public\Product::index/$1');

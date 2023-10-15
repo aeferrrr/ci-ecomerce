@@ -94,7 +94,7 @@ class Auth extends BaseController
             'nama' => $name,
             'password' => $hashedPassword,
             'email' => $email,
-            'id_role' => 1,
+            'id_role' => 2,
             'token' => $token,
             'id_status' => 2,
         ];

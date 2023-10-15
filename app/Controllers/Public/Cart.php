@@ -11,15 +11,41 @@ class Cart extends BaseController
     protected $ProdukModel;
     protected $keranjangModel;
     public function index()
-    {
-        $data = [
+{
+    $apiKey = '2d0c536fb8b9498938cb3479dbfb435c'; // Gantilah dengan API Key Anda
+    $provinceId = 6.5; // Gantilah dengan ID provinsi yang sesuai
+
+    $url = "https://api.rajaongkir.com/starter/city?province=$provinceId";
+
+    $headers = [
+        'key: ' . $apiKey,
+    ];
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $cities = [];
+    if ($response) {
+        $cities = json_decode($response, true);
+        // Proses data kota dan tampilkan di halaman web
+    }
+
+    $data = [
         'keranjang' => $this->keranjangModel
             ->join('produk', 'keranjang.id_produk = produk.id_produk')
             ->where('id_akun', session('id_akun'))
             ->findAll(),
-        ];
-        return view('public/cart', $data);
-    }
+        'cities' => $cities, // Menambahkan data kota ke variabel $data
+    ];
+
+    return view('public/cart', $data);
+}
+
     public function delete()
     {
         if ($this->request->getMethod() === 'post') {
@@ -90,5 +116,42 @@ class Cart extends BaseController
         return redirect()->back();
     }
 }
+
 }
+public function update()
+{
+    $productId = $this->request->getPost('product_id');
+    $newQty = $this->request->getPost('new_qty');
+
+    // Cari data keranjang berdasarkan id_produk
+    $existingData = $this->keranjangModel
+        ->where('id_produk', $productId)
+        ->first();
+
+    if ($existingData) {
+        // Produk ditemukan dalam keranjang
+        $qtybaru = $newQty;
+
+        $this->keranjangModel
+            ->where('id_produk', $productId)
+            ->set('qty', $qtybaru)
+            ->update();
+
+        session()->setFlashdata('success', 'Produk berhasil diperbarui.');
+    } else {
+        // Produk tidak ditemukan dalam keranjang, tambahkan produk ke keranjang.
+        $data = [
+            'id_produk' => $productId,
+            'qty' => $newQty
+        ];
+
+        $this->keranjangModel->insert($data);
+
+        session()->setFlashdata('success', 'Produk berhasil ditambahkan ke keranjang.');
+    }
+
+    return redirect()->back();
+}
+
+
 }

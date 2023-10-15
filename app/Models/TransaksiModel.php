@@ -9,11 +9,14 @@ class TransaksiModel extends Model
     protected $table      = 'transaksi';
     protected $primaryKey = 'id_transaksi';
 
+    protected $useAutoIncrement = true;
+
     protected $allowedFields = [
         'id_transaksi',
         'id_akun',
-        'total_harga',
+        'id_ekspedisi',
         'resi',
+        'total_harga',
         'created_at',
         'updated_at',
     ];

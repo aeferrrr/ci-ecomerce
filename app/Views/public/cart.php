@@ -11,10 +11,15 @@
                 <div class="card border shadow-0">
                     <div class="m-4">
                         <h4 class="card-title mb-4">Your shopping cart</h4>
-
-                        <?php $totalHargaSemuaProduk = 0; ?>
-                        <?php foreach ($keranjang as $index => $pk): ?>
+                        
+                        <?php $totalHargaSemuaProduk = 0; 
+                        $totalBerat = 0;?>
+                        <?php foreach ($keranjang as $index => $pk): 
+                        
+                          $totalBerat += $pk['berat'];?>
+                          <?php $id_produk = base64_encode($pk['id_produk']);?>
                           <?php $id_keranjang = base64_encode($pk['id_keranjang']);?>
+
 
                             <?php
                             $harga = $pk['harga'];
@@ -30,8 +35,9 @@
                                             <img src="<?= base_url('uploads/' . $pk['gambar_produk']); ?>"
                                                 class="border rounded me-3" style="width: 96px; height: 96px;" />
                                             <div class="">
-                                                <a href="#" class="nav-link"><?= $pk['nama_produk']; ?></a>
+                                                <a href="<?= base_url('/detail/' . $id_produk) ?>" class="nav-link"><?= $pk['nama_produk']; ?></a>
                                                 <p class="text-muted"><?= $pk['catatan']; ?></p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -40,8 +46,11 @@
                                     <div class="input-container">
                                     <div class="input-container">
                                     <button class="decrement-button" data-product-id="<?= $pk['id_produk']; ?>">-</button>
-                                        <input type="text" id="input-number-<?= $pk['id_produk']; ?>" value="<?= $qty; ?>" data-harga="<?= $harga; ?>">
-                                        <button class="increment-button" data-product-id="<?= $pk['id_produk']; ?>" data-max-qty="<?= $pk['stok']; ?>">+</button>
+                                    <form id="cart-update-form" action="<?= base_url('/cart/update/') ?>" method="post">
+                                        <input type="text" id="input-number-<?= $pk['id_produk']; ?>" value="<?= $qty; ?>" data-harga="<?= $harga; ?>" name="jumlah_produk">
+                                    </form>
+
+                                    <button class="increment-button" data-product-id="<?= $pk['id_produk']; ?>" data-max-qty="<?= $pk['stok']; ?>">+</button>
                                     </div>
                                     </div>
                                     <div class="">
@@ -61,17 +70,14 @@
                                 </div>
                             </div>
                         <?php endforeach; ?>
+                        
+                        </form>
                     </div>
-                    <div class="border-top pt-4 mx-4 mb-4">
-                        <p><i class="fas fa-truck text-muted fa-lg"></i> Free Delivery within 1-2 weeks</p>
-                        <p class="text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip
-                        </p>
-                    </div>
+
                 </div>
             </div>
+        
+
             <!-- cart -->
             <!-- summary -->
             <div class="col-lg-3">
@@ -88,7 +94,10 @@
                     </div>
                 </div>
                 <!-- Buttons for purchase and back to shop -->
-                <a href="#" class="btn btn-success w-100 shadow-0 mb-2">Make Purchase</a>
+                <form action="<?= base_url('/transaction/add') ?>" method="post">
+                    <input type="hidden" name="id_akun" value="<?= base64_encode(session()->get('id_akun')) ?>">
+                    <button type="submit" class="btn btn-success w-100 shadow-0 mb-2">Make Purchase</button>
+                </form>
                 <a href="<?= base_url('/') ?>" class="btn btn-light w-100 border mt-2">Back to Shop</a>
             </div>
             <!-- summary -->
@@ -149,6 +158,7 @@ incrementButtons.forEach(button => {
             inputElement.value = currentQty + 1;
             updateSubtotal(productId);
             updateTotalHarga();
+            updateFormAction(productId, inputElement.value); // Panggil fungsi untuk memperbarui aksi formulir
         }
     });
 });
@@ -157,18 +167,42 @@ incrementButtons.forEach(button => {
     // Ambil semua tombol decrement
     const decrementButtons = document.querySelectorAll('.decrement-button');
 
-    // Tambahkan event listener untuk setiap tombol decrement
+// Tambahkan event listener untuk setiap tombol decrement
     decrementButtons.forEach(button => {
         button.addEventListener('click', function () {
             const productId = this.getAttribute('data-product-id');
             const inputElement = document.getElementById('input-number-' + productId);
-            if (parseInt(inputElement.value) > 0) {
-                inputElement.value = parseInt(inputElement.value) - 1;
+            const currentQty = parseInt(inputElement.value);
+
+            if (currentQty > 0) { // Pastikan tidak kurangi jumlah jika sudah 0
+                inputElement.value = currentQty - 1;
                 updateSubtotal(productId);
                 updateTotalHarga();
+                updateFormAction(productId, inputElement.value); // Panggil fungsi untuk memperbarui aksi formulir
             }
         });
-    });
+        });
+
+        // Contoh menggunakan jQuery untuk mengirim permintaan AJAX ke server
+        function updateFormAction(productId, newQty) {
+            const form = document.getElementById('cart-update-form');
+            const newAction = `${form.getAttribute('action')}?product_id=${productId}&new_qty=${newQty}`;
+
+            $.ajax({
+                url: newAction,
+                type: 'POST',
+                data: {
+                    product_id: productId,
+                    new_qty: newQty
+                },
+                success: function (response) {
+                    // Proses respons dari server, misalnya, perbarui tampilan keranjang belanja.
+                },
+                error: function (error) {
+                    // Penanganan kesalahan, misalnya, tampilkan pesan kesalahan kepada pengguna.
+                }
+            });
+        }
 
     // Fungsi untuk mengupdate subtotal per produk
     function updateSubtotal(productId) {
