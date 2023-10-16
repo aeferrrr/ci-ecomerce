@@ -34,7 +34,7 @@ $routes->get('dashboard', 'Admin\Dashboard::index');
 
 // produk
 $routes->match(['get', 'post'], 'produk/create',    'Admin\Produk\Create::index');
-
+$routes->match(['get', 'post'], 'produk/update/(:num)',    'Admin\Produk\Update::index/$1');
 $routes->get('produk/read', 'Admin\Produk\Read::index');
 $routes->delete('produk/delete/(:num)', 'Admin\Produk\Delete::index/$1');
 //kategori

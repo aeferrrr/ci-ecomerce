@@ -64,7 +64,7 @@ $this->section('container'); ?>
                             <td style="text-align: justify;"><?= wordwrap($pr['deskripsi'], 50, "<br>\n", true); ?></td>
 
                             <td>
-                                <a href="<?= base_url('koperasi/produk/update/' . $pr['id_produk']) ?>" class="btn btn-sm btn-warning btn-circle update">
+                                <a href="<?= base_url('admin/produk/update/' . $pr['id_produk']) ?>" class="btn btn-sm btn-warning btn-circle update">
                                     <i class="far fa-edit"></i>
                                 </a>
                                 <a href="<?= base_url('admin/produk/delete/' . $pr['id_produk']) ?>" class="btn btn-sm btn-danger btn-circle delete">
@@ -89,7 +89,7 @@ $this->section('container'); ?>
 
             Swal.fire({
                 title: 'Konfirmasi Hapus',
-                text: 'Apakah Anda yakin ingin menghapus data ini?',
+                text: 'Apakah Anda yakin ingin menghapus data ini? <br> Data transaksi akan hilang jika menghapus produk ini ! <br> Pastikan anda sudah melakukan pencatatan terkait produk ini !',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
@@ -145,11 +145,11 @@ $this->section('container'); ?>
                 cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    const idBrand = <?= isset($pr['qr_produk']) ? json_encode($pr['qr_produk']) : 'null' ?>;
-                    if (idBrand !== null) {
+                    const idProduk = <?= isset($pr['id_produk']) ? json_encode($pr['id_produk']) : 'null' ?>;
+                    if (idProduk !== null) {
                         window.location.href = url;
                     } else {
-                        console.error('id_brand tidak memiliki nilai.');
+                        console.error('produk tidak memiliki nilai.');
                     }
                 }
             });

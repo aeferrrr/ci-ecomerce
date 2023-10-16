@@ -92,14 +92,6 @@ class Create extends BaseController
         // Unsur kode lainnya
         $newFileName = $gambarProduk->getRandomName();
         $gambarProduk->move(ROOTPATH . 'public/uploads', $newFileName);
-        
-        // ...
-        
-        
-        // ...
-        
-
-// ...
 
 
         $produkData = [
@@ -115,6 +107,7 @@ class Create extends BaseController
 
         $this->produkModel->insert($produkData);
 
-        return redirect()->to('admin/produk/create')->with('success', 'Produk berhasil disimpan');
+        session()->setFlashdata('success', 'Data berhasil disimpan.');
+        return redirect()->to('admin/produk/create');
     }
 }

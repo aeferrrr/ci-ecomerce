@@ -1,11 +1,6 @@
 <form action="<?= base_url('admin/produk/create') ?>" method="post" enctype="multipart/form-data" class="needs-validation">
 
-    <!-- Display success message if available -->
-    <?php if (session()->getFlashdata('success')): ?>
-        <div class="alert alert-success">
-            <?= session()->getFlashdata('success') ?>
-        </div>
-    <?php endif; ?>
+
      <!-- Display error message if available -->
      <?php if (session()->getFlashdata('error')): ?>
         <div class="alert alert-danger">
@@ -95,6 +90,17 @@
         </div>
     </div>
     <div class="form-group row">
+        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi Produk</label>
+        <div class="col-sm-10">
+            <textarea class="form-control <?= (session('validation') && session('validation')->hasError('deskripsi')) ? 'is-invalid' : ''; ?>" id="deskripsi" placeholder="Deskripsi Produk" name="deskripsi" rows="3"></textarea>
+            <?php if (session('validation') && session('validation')->hasError('deskripsi')): ?>
+                <div class="invalid-feedback">
+                    <?= session('validation')->getError('deskripsi'); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="form-group row">
         <label for="gambar_produk" class="col-sm-2 col-form-label">Gambar Produk</label>
         <div class="col-sm-10">
             <input type="file" class="form-control <?= (session('validation') && session('validation')->hasError('gambar_produk')) ? 'is-invalid' : ''; ?>" id="gambar_produk" name="gambar_produk">
@@ -115,38 +121,6 @@
             <?php endif; ?>
         </div>
     </div>
-    <div class="form-group row">
-        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi Produk</label>
-        <div class="col-sm-10">
-            <textarea class="form-control <?= (session('validation') && session('validation')->hasError('deskripsi')) ? 'is-invalid' : ''; ?>" id="deskripsi" placeholder="Deskripsi Produk" name="deskripsi" rows="3"></textarea>
-            <?php if (session('validation') && session('validation')->hasError('deskripsi')): ?>
-                <div class="invalid-feedback">
-                    <?= session('validation')->getError('deskripsi'); ?>
-                </div>
-            <?php endif; ?>
-        </div>
-    </div>
     <button class="btn btn-primary" type="submit">Simpan Produk</button>
 </form>
 
-<!-- CSS for custom file input -->
-<style>
-    .custom-file-label::after {
-        content: "Pilih file"; /* Label default */
-    }
-
-    .custom-file-input::before {
-        content: "Telusuri"; /* Tombol "Browse" */
-    }
-
-    .custom-file-label::after {
-        content: "Pilih file"; /* Label setelah memilih file */
-    }
-
-    .custom-file-input {
-        color: transparent;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-</style>

@@ -2,8 +2,8 @@
 $this->section('container'); ?>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Tambah kategori</h1>
-    <a href="<?= base_url('admin/kategori/read') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Kategori List</a>
+    <h1 class="h3 mb-0 text-gray-800">Tambah Kategori</h1>
+    <a href="<?= base_url('admin/kategori/read') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Kumpulan Kategori</a>
 </div>
 
 <!-- Basic Card Example -->
