@@ -219,8 +219,15 @@ class Transaction extends BaseController
                 'resi' => $tr['resi'],
             ];
         }
+        $alamat = $this->transaksiModel
+        ->join('detail_transaksi', 'transaksi.id_transaksi = detail_transaksi.id_transaksi')
+        ->join('alamat', 'transaksi.id_alamat = alamat.id_alamat')
+        ->join('akun', 'transaksi.id_akun = akun.id_akun')
+        ->where('transaksi.id_akun', $idAkunDecoded)
+        ->findAll();
+
     
-        return view('public/history', ['transaksi' => $data,]);
+        return view('public/history', ['transaksi' => $data, 'alamat' => $alamat]);
     }
     
 
