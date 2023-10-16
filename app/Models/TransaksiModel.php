@@ -9,15 +9,20 @@ class TransaksiModel extends Model
     protected $table      = 'transaksi';
     protected $primaryKey = 'id_transaksi';
 
+    protected $useAutoIncrement = true;
+    protected $useTimestamps = true;
+
     protected $allowedFields = [
         'id_transaksi',
         'id_akun',
-        'total_harga',
+        'id_ekspedisi',
+        'id_alamat',
         'resi',
+        'total_harga',
         'created_at',
         'updated_at',
     ];
 
     // Dates
-    protected $useTimestamps = true;
+
 }

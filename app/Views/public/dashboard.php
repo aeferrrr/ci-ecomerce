@@ -13,13 +13,13 @@
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="https://img.freepik.com/free-photo/medium-shot-woman-chair-single-s-day-banner_23-2149520222.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="https://img.freepik.com/free-photo/big-sale-discounts-products_23-2150336658.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="https://img.freepik.com/premium-psd/creative-dj-hallowen-party-promotion-instagram-post-template_417074-137.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -31,9 +31,9 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<br>
             <div class="row">
             <?php
-             for ($i = 0; $i < 15; $i++) { 
                foreach ($produk as $pk): 
                   $id_produk = base64_encode($pk['id_produk']);
                   ?>
@@ -49,7 +49,7 @@
                             </a>
                         </div>
                     </div>
-                <?php endforeach;} ?>
+                <?php endforeach; ?>
             </div>
         </div>
         
