@@ -20,7 +20,7 @@ $this->section('container'); ?>
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                         TRANSAKSI HARI INI</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><p>Isi transaksi hari ini disini</p></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><p>Rp.<?php echo number_format($transactiontoday, 2, ',', '.'); ?></p></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -38,7 +38,7 @@ $this->section('container'); ?>
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             TRANSAKSI MINGGU INI</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><p>isi transaksi mingguan disini</p></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><p>Rp.<?php echo number_format($transactionThisWeek, 2, ',', '.'); ?></p></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -56,7 +56,7 @@ $this->section('container'); ?>
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                         TRANSAKSI BULAN INI</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><p>transaksi bulanan</p>></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><p>Rp.<?php echo number_format($transactionThisMonth, 2, ',', '.'); ?></p></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -74,7 +74,8 @@ $this->section('container'); ?>
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                         TRANSAKSI TAHUN INI</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><p>tahungan</p></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><p>Rp.<?php echo number_format($transactionThisYear, 2, ',', '.'); ?>
+                    </p></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -109,12 +110,53 @@ $this->section('container'); ?>
             </div>
         </div>
         <div class="card-body">
-            <div class="chart-area">
-                <canvas id="monthlyTransactionChart"></canvas>
+            <div>
+                <canvas id="monthlyRevenueChart"></canvas>
             </div>
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var monthlyData = <?= json_encode($transactionMonthly); ?>; // Data dari PHP
+
+    var months = []; // Array untuk menyimpan nama bulan
+    var revenue = []; // Array untuk menyimpan pendapatan
+
+    // Objek untuk mengonversi nomor bulan ke nama bulan
+    var monthNames = [
+        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+
+    for (var i = 0; i < monthlyData.length; i++) {
+        var monthNumber = monthlyData[i].month; // Nomor bulan
+        var monthName = monthNames[monthNumber - 1]; // Mengambil nama bulan berdasarkan nomor bulan
+        months.push(monthName);
+        revenue.push(monthlyData[i].total_harga);
+    }
+
+    var ctx = document.getElementById('monthlyRevenueChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: months, // Label nama bulan
+            datasets: [{
+                label: 'Pendapatan Bulanan',
+                data: revenue, // Data pendapatan
+                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Warna latar belakang
+                borderColor: 'rgba(75, 192, 192, 1)', // Warna border
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
 
 <!-- Bagian Script JavaScript -->
 
