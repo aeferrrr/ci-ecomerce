@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 
+
  //auth
  $routes->post('auth/login', 'Auth\Auth::login');
  $routes->get('auth/logout', 'Auth\Auth::logout');
@@ -33,6 +34,9 @@ $routes->post('rajaongkir/shipping-cost', 'RajaOngkirController::getShippingCost
 
 //product
 $routes->get('/detail/(:any)', 'Public\Product::index/$1');
+
+//search
+$routes->get('search/(:any)', 'Public\Dashboard::search/$1');
 
  //public
  $routes->get('/beranda', 'Public\Dashboard::index');

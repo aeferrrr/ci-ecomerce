@@ -28,11 +28,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pengaturan">
 
-                        <a class="dropdown-item" href="<?php echo base_url('search/MAGANG'); ?>">Magang</a>
-                        <a class="dropdown-item" href="<?php echo base_url('search/SEMINAR'); ?>">Seminar</a>
-                        <a class="dropdown-item" href="<?php echo base_url('search/PENELITIAN'); ?>">Penelitian</a>
-                        <a class="dropdown-item" href="<?php echo base_url('search/PKM'); ?>">PKM</a>
-                        <a class="dropdown-item" href="<?php echo base_url('search/REKOGNISI'); ?>">Rekognisi</a>
+                        <a class="dropdown-item" href="<?php echo base_url('search/pakaian'); ?>">Pakaian</a>
+                        <a class="dropdown-item" href="<?php echo base_url('search/tas'); ?>">Tas</a>
+                        <a class="dropdown-item" href="<?php echo base_url('search/dompet'); ?>">Dompet</a>
+                        <a class="dropdown-item" href="<?php echo base_url('search/kotak-pensil'); ?>">Kotak Pensil</a>
                     </div>
                 </li>
     </ul>
