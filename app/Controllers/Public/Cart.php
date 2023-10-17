@@ -55,7 +55,6 @@ class Cart extends BaseController
     if ($this->request->getMethod() === 'post') {
         // Aturan validasi
         $validationRules = [
-            'id_akun' => 'required',
             'id_produk' => 'required',
             'jumlah_produk' => 'required',
         ];
@@ -71,6 +70,10 @@ class Cart extends BaseController
             $errors = $this->validator->getErrors();
             session()->setFlashdata('error', $errors);
             return redirect()->back();
+        }
+        if ($id_akun == null) {
+            session()->setFlashdata('error', 'Maaf, Harap Login Terlebih Dahulu');
+            return redirect()->back(); // Redirect to the login page or another appropriate page.
         }
 
         // Decode 'id_produk'

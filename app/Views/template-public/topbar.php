@@ -47,7 +47,10 @@
    
     <ul class="dropdown-menu dropdown-menu-end text-small shadow">
         <li> <a class="dropdown-item"> <?= session()->get('nama'); ?></a></li>
-        <li><a class="dropdown-item" href="<?= base_url('uploader/profile/update/' . session()->get('id_akun')); ?>">Profile</a></li>
+        <li><a class="dropdown-item" id="profile">Ganti Password</a></li>
+        <form id="formprofile" action="<?= base_url('/auth/profile'); ?>" method="post">
+        <input type="hidden" name="id_akun" value="<?= base64_encode(session()->get('id_akun')); ?>">
+        </form>
         <li><a class="dropdown-item" id="history">Riwayat Transaksi</a></li>
         <form id="postForm" action="<?= base_url('transaction/history'); ?>" method="post">
         <input type="hidden" name="id_akun" value="<?= base64_encode(session()->get('id_akun')); ?>">
@@ -105,7 +108,6 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Register</button>
-                    <a href="<?php echo base_url('auth/activated'); ?>">Aktivasi Akun</a>
                 </form>
             </div>
         </div>
@@ -166,6 +168,14 @@
                 window.location.href = "<?= base_url('auth/logout'); ?>";
             }
         });
+    });
+</script>
+
+<script>
+    document.getElementById('profile').addEventListener('click', function(event) {
+        event.preventDefault();
+        const postForm = document.getElementById('formprofile');
+        postForm.submit();
     });
 </script>
 

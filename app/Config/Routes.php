@@ -14,6 +14,8 @@ use CodeIgniter\Router\RouteCollection;
  $routes->post('auth/register', 'Auth\Auth::register');
  $routes->get('auth/activated', 'Auth\Auth::activated');
  $routes->post('auth/activated', 'Auth\Auth::activated');
+ $routes->post('auth/profile', 'Auth\Auth::profile');
+ $routes->post('auth/change_password', 'Auth\Auth::change_password');
 
 //cart
 $routes->get('/cart', 'Public\Cart::index');

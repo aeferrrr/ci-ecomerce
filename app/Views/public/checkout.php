@@ -84,7 +84,7 @@
               <div class="col-sm-8 mb-3">
                 <p class="mb-0">Alamat</p>
                 <div class="form-outline">
-                  <input type="text" id="alamat" name="alamat" placeholder="Type here" class="form-control" required value="" />
+                  <input type="text" id="alamat" name="alamat" placeholder="Masukan Alamat" class="form-control" required value="" />
                 </div>
               </div>
 
@@ -112,21 +112,21 @@
               <div class="col-sm-4 mb-3">
                 <p class="mb-0">Kecamatan</p>
                 <div class="form-outline">
-                  <input type="text" id="kecamatan" name="kecamatan" placeholder="Type here" class="form-control" required value="" />
+                  <input type="text" id="kecamatan" name="kecamatan" placeholder="Masukan Kecamatan" class="form-control" required value="" />
                 </div>
               </div>
 
               <div class="col-sm-4 mb-3">
                 <p class="mb-0">Kelurahan</p>
                 <div class="form-outline">
-                  <input type="text" id="kelurahan" name="kelurahan" placeholder="Type here" class="form-control" required value="" />
+                  <input type="text" id="kelurahan" name="kelurahan" placeholder="Masukan Kelurahan" class="form-control" required value="" />
                 </div>
               </div>
 
               <div class="col-sm-4 col-6 mb-3">
                 <p class="mb-0">Kode Pos</p>
                 <div class="form-outline">
-                  <input type="text" id="kodepos" name="kodepos" class="form-control" required value="" />
+                  <input type="text" id="kodepos" placeholder="Masukan Kodepos" name="kodepos" class="form-control" required value="" />
                 </div>
               </div>
             </div>  
@@ -151,7 +151,7 @@
               <input type="hidden" name="id_akun" id="id_akun" value="<?= base64_encode(session()->get('id_akun')) ?>">
               <input type="hidden" name="total-pembayaran1" id="total-pembayaran1" value="">
               <a href="<?= base_url('/cart') ?>" class="btn btn-light border">Kembali</a>
-              <button type="submit" class="btn btn-success shadow-0 border">Continue</button>
+              <button type="submit" class="btn btn-success shadow-0 border">Bayar</button>
             </div>
           </div>
         </div>

@@ -162,4 +162,50 @@ public function activated()
         return view('template-public/activated');
     }
 }
+    public function profile()
+    {
+        $akunId = $this->request->getPost('id_akun');
+        $akunIdDecode = base64_decode($akunId);
+        $data = [
+            'akun'=>$this->akunModel
+            ->where('id_akun', $akunIdDecode)
+            ->first(),
+
+        ];
+        var_dump($data);
+        return view('public/profile', $data);
+    }
+
+    public function change_password()
+{
+    $akunId = $this->request->getPost('account_id');
+    $akunIdDecode = base64_decode($akunId);
+    $oldpassword = $this->request->getPost('oldpassword');
+    $newpassword = $this->request->getPost('newpassword');
+    $confirmpassword = $this->request->getPost('confirmpassword');
+    $user = $this->akunModel->where('id_akun', $akunIdDecode)->first();
+
+    if ($user !== null) {
+        if (md5($oldpassword) == $user['password']) {
+            if ($newpassword == $confirmpassword) {
+                // Hash the new password before updating it in the database.
+                $hashedPassword = md5($newpassword);
+                $this->akunModel->update($akunIdDecode, ['password' => $hashedPassword]);
+                session()->setFlashdata('success', 'Password Berhasil Diganti.');
+            } else {
+                session()->setFlashdata('error', 'Password Baru dan Konfirmasi Password Tidak Cocok.');
+            }
+        } else {
+            session()->setFlashdata('error', 'Password Lama Salah.');
+        }
+    } else {
+        session()->setFlashdata('error', 'User not found.'); // Handle the case where the user is not found in the database.
+    }
+
+    return redirect()->to(base_url('/'));
+}
+
+
+
+    
 }
