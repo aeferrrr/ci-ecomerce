@@ -64,6 +64,7 @@ class Read extends BaseController
                 'total' => $tr['total'],
                 'total_harga' => $tr['total_harga'],
                 'resi' => $tr['resi'],
+                'qty' => $tr['qty'],
             ];
             
         }
