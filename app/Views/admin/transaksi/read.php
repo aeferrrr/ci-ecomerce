@@ -21,7 +21,7 @@
                         <th>Ekspedisi</th>
                         <th>Tanggal Transaksi</th>
                         <th>Total Pembayaran</th>
-                        <th style="width: 15%;">Action</th>
+                        <th style="width: 15%;">Input Resi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +34,7 @@
                         <?php foreach ($alamat as $addr): ?>
                         <?php if ($addr['id_transaksi'] == $tr['id_transaksi'] && !$addressDisplayed): ?>
                         <td><?= $addr['resi'] ?></td>
-                        <td><?= $addr['alamat'] ?><br><?= $addr['kota'] ?><br><?= $addr['kecamatan'] ?><br><?= $addr['kelurahan'] ?><br><?= $addr['provinsi'] ?><br><?= $addr['kode_pos'] ?><br></td>
+                        <td><?= $addr['alamat'] ?>,<br><?= $addr['kota'] ?>,<br><?= $addr['kecamatan'] ?>,<br><?= $addr['kelurahan'] ?>,<br><?= $addr['provinsi'] ?>,<br><?= $addr['kode_pos'] ?>.<br></td>
                         <?php $addressDisplayed = true; ?>
                             <?php endif; ?>
                         <?php endforeach; ?>
@@ -50,10 +50,10 @@
                         </td>
                         <td><?= $tr['ekspedisi'] ?></td>
                         <td><?= $tr['tanggal_pengiriman'] ?></td>
-                        <td><?= number_format($tr['items'][0]['total_harga'], 0, ',', '.') ?></td>
+                        <td>Rp.<?= number_format($tr['items'][0]['total_harga'], 0, ',', '.') ?></td>
                         <td>
-                            <a href="<?= base_url('koperasi/riwayat/detail/' . $tr['id_transaksi']) ?>" class="btn btn-sm btn-success btn-circle update">
-                                <i class="fas fa-info"></i>
+                            <a href="<?= base_url('admin/transaksi/update/' . $tr['id_transaksi']) ?>" class="btn btn-sm btn-warning btn-circle update">
+                                <i class="fas fa-truck"></i>
                             </a>
                         </td>
                     </tr>

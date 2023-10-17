@@ -4,10 +4,10 @@
     <div class="form-group row">
         <label for="nama_kategori" class="col-sm-2 col-form-label">Nama Kategori</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control <?php echo session()->has('field_error.nama_kategori') ? 'is-invalid' : ''; ?>" id="nama_kategori" value="<?= $kategori['nama_kategori']; ?>" name="nama_kategori">
-            <?php if (session()->has('field_error.nama_kategori')) : ?>
+            <input type="text" class="form-control <?= (session('validation') && session('validation')->hasError('nama_kategori')) ? 'is-invalid' : ''; ?>" id="nama_kategori" placeholder="Pakaian" name="nama_kategori"  value="<?= $kategori['nama_kategori']; ?>">
+            <?php if (session('validation') && session('validation')->hasError('nama_kategori')) : ?>
                 <div class="invalid-feedback">
-                    <?php echo session('field_error.nama_kategori'); ?>
+                    <?= session('validation')->getError('nama_kategori'); ?>
                 </div>
             <?php endif; ?>
         </div>

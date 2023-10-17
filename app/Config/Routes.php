@@ -61,5 +61,6 @@ $routes->match(['get', 'post'], 'kategori/update/(:num)',    'Admin\Kategori\Upd
 $routes->get('kategori/read', 'Admin\Kategori\Read::index');
 $routes->delete('kategori/delete/(:num)', 'Admin\Kategori\Delete::index/$1');
 //RiwayatTransaksi
+$routes->match(['get', 'post'], 'transaksi/update/(:num)',    'Admin\Transaksi\Update::index/$1');
 $routes->get('transaksi/read', 'Admin\Transaksi\Read::index');
 });
