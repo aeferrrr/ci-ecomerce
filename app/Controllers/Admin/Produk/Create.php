@@ -25,8 +25,8 @@ class Create extends BaseController
             'id_kategori' => 'required',
             'sku' => 'required|numeric|max_length[11]',
             'nama_produk' => 'required|alpha_numeric_punct|max_length[25]|is_unique[produk.nama_produk]',
-            'harga' => 'required|numeric',
-            'stok' => 'required|numeric',
+            'harga' => 'required|numeric|greater_than_equal_to[0]',
+            'stok' => 'required|numeric|greater_than_equal_to[0]',
             'berat' => 'required|numeric',
             'deskripsi' => 'required',
         ];
@@ -51,11 +51,13 @@ class Create extends BaseController
             'harga' => [
                 'required' => 'Kolom Harus Terisi',
                 'numeric' => 'Kolom Harus Berupa Angka',
+                'greater_than_equal_to' => 'Minimun angka adalah 0'
                 // Add more custom error messages as needed
             ],
             'stok' => [
                 'required' => 'Kolom Harus Terisi',
                 'numeric' => 'Kolom Harus Berupa Angka',
+                'greater_than_equal_to' => 'Minimun angka adalah 0'
                 // Add more custom error messages as needed
             ],
             'berat' => [

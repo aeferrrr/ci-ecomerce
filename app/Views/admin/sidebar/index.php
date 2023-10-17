@@ -56,7 +56,7 @@
 
     <!-- Nav Item -  -->
     <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('koperasi/riwayat/read') ?>">
+            <a class="nav-link" href="<?= base_url('admin/transaksi/read') ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Riwayat Transaksi</span></a>
     </li>
