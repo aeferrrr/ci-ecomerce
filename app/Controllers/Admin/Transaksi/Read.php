@@ -52,6 +52,7 @@ class Read extends BaseController
                 $data[$transaksiId] = [
                     'id_transaksi' => $tr['id_transaksi'],
                     'tanggal_pengiriman' => $tr['updated_at'],
+                    'ekspedisi' => $tr['nama_ekspedisi'],
                     'items' => [],
                 ];
             }

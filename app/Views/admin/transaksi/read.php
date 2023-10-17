@@ -24,7 +24,9 @@
                         <th>Resi</th>
                         <th>Alamat</th>
                         <th>Produk</th>
-                        <th>Catatan</th>
+                        <th></th>
+                        <th>Ekspedisi</th>
+                        <th>Tanggal Transaksi</th>
                         <th>Total Pembayaran</th>
                         <th style="width: 15%;">Action</th>
                     </tr>
@@ -53,6 +55,8 @@
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </td>
+                        <td><?= $tr['ekspedisi'] ?></td>
+                        <td><?= $tr['tanggal_pengiriman'] ?></td>
                         <td><?= number_format($tr['items'][0]['total_harga'], 0, ',', '.') ?></td>
                         <td>
                             <a href="<?= base_url('koperasi/riwayat/detail/' . $tr['id_transaksi']) ?>" class="btn btn-sm btn-success btn-circle update">
