@@ -5,12 +5,7 @@
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Riwayat Transaksi</h1>
-    <div class="d-none d-sm-inline-block filter-container">
-        <input type="date" id="dateFrom" placeholder="Dari Tanggal" required>
-        ->
-        <input type="date" id="dateTo" placeholder="Hingga Tanggal" required>
-        <button id="filterButton">Filter</button>
-    </div>
+
 </div>
 
 <div class="card shadow mb-4">
