@@ -16,44 +16,49 @@
                         <th>Id Transaksi</th>
                         <th>Resi</th>
                         <th>Alamat</th>
-                        <th style="width: 50%;">Produk</th>
-                        <th>Catatan</th>
+                        <th>Produk</th>
+                        <th></th>
+                        <th>Ekspedisi</th>
+                        <th>Tanggal Transaksi</th>
                         <th>Total Pembayaran</th>
                         <th style="width: 15%;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1;
-                    foreach ($transaksi as $tr) : ?>
-                        <tr>
-                            <td><?= $i++; ?></td>
-                            <td><?= base64_encode($tr['id_transaksi']) ?></td>
-                            <?php $addressDisplayed = false; ?>
-                            <?php foreach ($alamat as $addr): ?>
-                            <?php if ($addr['id_transaksi'] == $tr['id_transaksi'] && !$addressDisplayed): ?>
-                            <td><?= $addr['resi'] ?></td>
-                            <td><?= $addr['alamat'] ?><br><?= $addr['kota'] ?><br><?= $addr['kode_pos'] ?><br></td>
-                            <?php $addressDisplayed = true; ?>
+                                <?php $i = 1;
+                foreach ($transaksi as $tr) : ?>
+                    <tr>
+                        <td><?= $i++; ?></td>
+                        <td><?= base64_encode($tr['id_transaksi']) ?></td>
+                        <?php $addressDisplayed = false; ?>
+                        <?php foreach ($alamat as $addr): ?>
+                        <?php if ($addr['id_transaksi'] == $tr['id_transaksi'] && !$addressDisplayed): ?>
+                        <td><?= $addr['resi'] ?></td>
+                        <td><?= $addr['alamat'] ?><br><?= $addr['kota'] ?><br><?= $addr['kecamatan'] ?><br><?= $addr['kelurahan'] ?><br><?= $addr['provinsi'] ?><br><?= $addr['kode_pos'] ?><br></td>
+                        <?php $addressDisplayed = true; ?>
                             <?php endif; ?>
+                        <?php endforeach; ?>
+                        <?php $productCount = count($tr['items']); // Count the number of products in the transaction ?>
+                        <td colspan="2"> <!-- Combine two cells for Product and Notes -->
+                            <?php foreach ($tr['items'] as $index => $item): ?>
+                                <?= $item['nama_produk'] ?> <?= $item['qty'] ?>pcs<br>
+                                Note:<?= $item['catatan'] ?><br>
+                                <?php if ($index < $productCount - 1): // Add a separator if there are more products ?>
+                                    <hr>
+                                <?php endif; ?>
                             <?php endforeach; ?>
-                            <?php $rowspan = count($tr['items']); ?>
-                            <?php foreach ($tr['items'] as $key => $item): ?>
-                            <?php if ($key === 0): ?>
-                            <td rowspan="<?= $rowspan ?>"><?= $item['nama_produk'] ?></td>
-                            <td rowspan="<?= $rowspan ?>"><?= $item['catatan'] ?></td>
-                            <?php else: ?>
-                            <td><?= $item['nama_produk'] ?></td>
-                            <td><?= $item['catatan'] ?></td>
-                            <?php endif; ?>
-                            <?php endforeach; ?>
-                            <td><?= number_format($tr['items'][0]['total_harga'], 0, ',', '.') ?></td>
-                            <td>
-                                <a href="<?= base_url('koperasi/riwayat/detail/' . $tr['id_transaksi']) ?>" class="btn btn-sm btn-success btn-circle update">
-                                    <i class="fas fa-info"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                        </td>
+                        <td><?= $tr['ekspedisi'] ?></td>
+                        <td><?= $tr['tanggal_pengiriman'] ?></td>
+                        <td><?= number_format($tr['items'][0]['total_harga'], 0, ',', '.') ?></td>
+                        <td>
+                            <a href="<?= base_url('koperasi/riwayat/detail/' . $tr['id_transaksi']) ?>" class="btn btn-sm btn-success btn-circle update">
+                                <i class="fas fa-info"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+
                 </tbody>
             </table>
         </div>
