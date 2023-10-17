@@ -17,18 +17,15 @@
     <div class="card-body">
         <div class="table-responsive">
             <table class="table align-middle mb-0 bg-white" id="dataTable">
-              <thead class="bg-light">
-                
+            <thead class="bg-light">
                     <tr>
-                       <th style="width: 5%;">No</th>
-                        <th>Nama</th>
+                        <th style="width: 5%;">No</th>
                         <th>Id Transaksi</th>
+                        <th>Resi</th>
                         <th>Alamat</th>
                         <th>Produk</th>
-                        <th>Resi</th>
                         <th>Catatan</th>
-                        <th>Total Transaksi</th>
-                        <th>Tanggal Transaksi</th>
+                        <th>Total Pembayaran</th>
                         <th style="width: 15%;">Action</th>
                     </tr>
                 </thead>
@@ -37,8 +34,20 @@
                     foreach ($transaksi as $tr) : ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td><?= $tr['id_transaksi']; ?></td>
-
+                            <td><?= base64_encode($tr['id_transaksi']) ?></td>
+                            <?php $addressDisplayed = false; ?>
+                            <?php foreach ($alamat as $addr): ?>
+                            <?php if ($addr['id_transaksi'] == $tr['id_transaksi'] && !$addressDisplayed): ?>
+                            <td><?= $addr['resi'] ?></td>
+                            <td><?= $addr['alamat'] ?><br><?= $addr['kota'] ?><br><?= $addr['kode_pos'] ?><br></td>
+                            <?php $addressDisplayed = true; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            <?php foreach ($tr['items'] as $item): ?>
+                                <td><?= $item['nama_produk'] ?></td>
+                                <td><?= $item['catatan'] ?></td>
+                            <?php endforeach; ?>
+                            <td><?= number_format($tr['items'][0]['total_harga'], 0, ',', '.') ?></td>
                             <td>
                                 <a href="<?= base_url('koperasi/riwayat/detail/' . $tr['id_transaksi']) ?>" class="btn btn-sm btn-success btn-circle update">
                                     <i class="fas fa-info"></i>

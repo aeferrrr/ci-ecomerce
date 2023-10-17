@@ -10,7 +10,7 @@
             <div class="col-lg-9">
                 <div class="card border shadow-0">
                     <div class="m-4">
-                        <h4 class="card-title mb-4">Your shopping cart</h4>
+                        <h4 class="card-title mb-4">Keranjang Saya</h4>
                         
                         <?php $totalHargaSemuaProduk = 0; 
                         $totalBerat = 0;?>
@@ -96,9 +96,9 @@
                 <!-- Buttons for purchase and back to shop -->
                 <form action="<?= base_url('/transaction/add') ?>" method="post">
                     <input type="hidden" name="id_akun" value="<?= base64_encode(session()->get('id_akun')) ?>">
-                    <button type="submit" class="btn btn-success w-100 shadow-0 mb-2">Make Purchase</button>
+                    <button type="submit" class="btn btn-success w-100 shadow-0 mb-2">Beli Sekarang</button>
                 </form>
-                <a href="<?= base_url('/') ?>" class="btn btn-light w-100 border mt-2">Back to Shop</a>
+                <a href="<?= base_url('/') ?>" class="btn btn-light w-100 border mt-2">Kembali</a>
             </div>
             <!-- summary -->
         </div>

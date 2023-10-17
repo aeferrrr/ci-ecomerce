@@ -54,7 +54,7 @@
     <div class="form-group row">
         <label for="stok" class="col-sm-2 col-form-label">Stok</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control <?= (session('validation') && session('validation')->hasError('stok')) ? 'is-invalid' : ''; ?>" id="stok" placeholder="Stok barang" name="stok" value="<?= $produk['stok']; ?>">
+            <input type="text" class="form-control <?= (session('validation') && session('validation')->hasError('stok')) ? 'is-invalid' : ''; ?>" id="stok" placeholder="Stok barang" name="stok" min="1" value="<?= $produk['stok']; ?>">
             <?php if (session('validation') && session('validation')->hasError('stok')): ?>
                 <div class="invalid-feedback">
                     <?= session('validation')->getError('stok'); ?>
