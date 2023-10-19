@@ -9,7 +9,7 @@ class StatusModel extends Model
     protected $table      = 'status';
     protected $primaryKey = 'id_status';
 
-    protected $useAutoIncrement = false;
+    protected $useAutoIncrement = true;
 
     protected $allowedFields = [
         'id_status',

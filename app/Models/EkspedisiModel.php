@@ -9,7 +9,7 @@ class EkspedisiModel extends Model
     protected $table      = 'id_ekspedisi';
     protected $primaryKey = 'nama_ekspedisi';
 
-    protected $useAutoIncrement = false;
+    protected $useAutoIncrement = true;
 
     protected $allowedFields = [
         'id_ekspedisi',

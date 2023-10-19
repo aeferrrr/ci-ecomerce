@@ -9,7 +9,7 @@ class RoleModel extends Model
     protected $table      = 'role';
     protected $primaryKey = 'id_role';
 
-    protected $useAutoIncrement = false;
+    protected $useAutoIncrement = true;
 
     protected $allowedFields = [
         'id_role',
